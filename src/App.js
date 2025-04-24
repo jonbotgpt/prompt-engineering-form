@@ -38,16 +38,38 @@ Now begin.`;
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Prompt Engineering Form</h1>
+    <div className="max-w-3xl mx-auto p-6 space-y-6 text-gray-900">
+      <h1 className="text-3xl font-bold">Prompt Engineering Form</h1>
 
-      <div className="grid gap-4">
-        <textarea className="w-full border rounded p-2" rows={3} placeholder="Define your goal..." value={goal} onChange={(e) => setGoal(e.target.value)} />
-        <input className="w-full border rounded p-2" type="text" placeholder="Define role (e.g., AI strategist, fitness coach)..." value={role} onChange={(e) => setRole(e.target.value)} />
-        <textarea className="w-full border rounded p-2" rows={3} placeholder="Provide relevant context..." value={context} onChange={(e) => setContext(e.target.value)} />
-        <textarea className="w-full border rounded p-2" rows={2} placeholder="Specify desired output format..." value={format} onChange={(e) => setFormat(e.target.value)} />
-        <input className="w-full border rounded p-2" type="text" placeholder="Style (e.g., direct, analytical)..." value={style} onChange={(e) => setStyle(e.target.value)} />
-        <button className="bg-black text-white px-4 py-2 rounded" onClick={handleSubmit}>Generate Prompt</button>
+      <div className="space-y-4">
+        <div>
+          <label className="block font-semibold mb-1">Goal</label>
+          <textarea className="w-full border rounded p-2" rows={2} placeholder="What do you want the AI to do?" value={goal} onChange={(e) => setGoal(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="block font-semibold mb-1">Role</label>
+          <input className="w-full border rounded p-2" type="text" placeholder="Who should the AI act as?" value={role} onChange={(e) => setRole(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="block font-semibold mb-1">Context</label>
+          <textarea className="w-full border rounded p-2" rows={3} placeholder="Relevant background or constraints" value={context} onChange={(e) => setContext(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="block font-semibold mb-1">Format</label>
+          <textarea className="w-full border rounded p-2" rows={2} placeholder="e.g., Bullet points, table, executive summary..." value={format} onChange={(e) => setFormat(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="block font-semibold mb-1">Style</label>
+          <input className="w-full border rounded p-2" type="text" placeholder="Tone or emphasis (e.g., analytical, persuasive)" value={style} onChange={(e) => setStyle(e.target.value)} />
+        </div>
+
+        <button className="bg-black text-white px-4 py-2 rounded" onClick={handleSubmit}>
+          Generate Prompt
+        </button>
       </div>
 
       {output && (
